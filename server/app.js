@@ -86,13 +86,14 @@ app.post("/api/csv", upload.single("csv"), async (req, res) => {
 
 app.post("/api/image-update", async (req, res) => {
   const token = req.query.token;
-  const result = req.body;
+  const { result } = req.body;
+  console.log(token, result);
   const find = await Company.findById(token);
-  const updateresult = await Company.update({
+  const updateresult = await Company.updateOne({
     emit: find.email,
     result: result,
   });
-  return res.json({ status: 200 });
+  return res.json({ status: 200, token, result });
 });
 
 app.post("/api/image", async (req, res) => {

@@ -67,10 +67,10 @@ export const Home = () => {
               Logout
             </button>
           </div>
-          <div className="text-sm font-ubuntu">hello {email}</div>
+          <div className="text-sm font-ubuntu text-blue-600">Hi, {email}</div>
         </div>
       </div>
-      <div class="w-[80%] bg-white border border-neutral-300 h-[80vh] rounded-xl ">
+      <div class="w-[80%] bg-white border border-neutral-300 h-[80vh]">
         <div className="flex  bg-neutral-100 shadow-md justify-center items-center gap-4 p-2">
           <form onSubmit={(e) => e.preventDefault()}>
             <label
@@ -112,7 +112,7 @@ export const Home = () => {
         </div>
         <div className="flex w-full justify-center items-center">
           {image ? (
-            <img src={image} className=" w-[50%] my-5" />
+            <img src={image} className=" h-[70vh] my-5" />
           ) : (
             <div className="text-xl my-10 font-ubuntu">No Result found</div>
           )}
