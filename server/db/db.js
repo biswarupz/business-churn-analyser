@@ -4,11 +4,11 @@ mongoose.connect(
 );
 
 const CompanySchema = new mongoose.Schema({
-  enail: String,
+  email: String,
   password: String,
   testfile: String,
   result: String,
 });
 
-const Company = mongoose.model("News", CompanySchema);
+const Company = mongoose.model("Company", CompanySchema);
 module.exports = { Company };
