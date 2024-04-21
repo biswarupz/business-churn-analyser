@@ -15,14 +15,10 @@ export const Login = () => {
         password,
       });
 
-      if (response.data.status === 200) {
-        setPopUp("Login successful");
-        localStorage.setItem("token", response.data.userId);
-        localStorage.setItem("email", response.data.email);
-        navigate("/home");
-      } else {
-        setPopUp(response.data.message);
-      }
+      setPopUp("Login successful");
+      localStorage.setItem("token", response.data.userId);
+      localStorage.setItem("email", response.data.email);
+      navigate("/home");
     } catch (error) {
       console.log(error);
       setPopUp("An error occurred. Please try again.");
@@ -37,11 +33,7 @@ export const Login = () => {
         password,
       });
 
-      if (response.data.status === 201) {
-        setPopUp("Sign up successful. Please log in.");
-      } else {
-        setPopUp(response.data.message);
-      }
+      setPopUp(response.data.message);
     } catch (error) {
       console.log(error);
       setPopUp("An error occurred. Please try again.");

@@ -8,13 +8,14 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json({ message: "Server is live" });
 });
-app.post("/signup", async (req, res) => {
+app.post("/api/signup", async (req, res) => {
   const { email, password } = req.body;
-
+  console.log(email);
   try {
     const existingUser = await Company.findOne({ email });
+    console.log(existingUser);
     if (existingUser) {
-      return res.status(400).json({ message: "Email already exists" });
+      return res.json({ message: "Email already exists" });
     }
 
     const newUser = await Company.create({ email, password });
@@ -28,11 +29,12 @@ app.post("/signup", async (req, res) => {
     return res.status(500).json({ message: "Failed to create user" });
   }
 });
-app.post("/login", async (req, res) => {
+app.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
-
+  console.log(email, password);
   try {
     const user = await Company.findOne({ email });
+    console.log(user);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
